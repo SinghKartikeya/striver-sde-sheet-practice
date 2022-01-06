@@ -1,0 +1,54 @@
+# striver-sde-sheet-practice
+19. Remove Nth Node From End of List
+c++
+
+**************************
+
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode *temp=head;
+        int c=0;
+        ListNode *prev,*forw;
+        while(temp!=NULL)
+        {
+            c=c+1;
+            temp=temp->next;
+        }
+       temp=head;
+        int k=c-n+1;
+       if(k==1)
+       {
+           head=temp->next;
+       }
+        else if(k==c)
+        {
+            while(temp!=NULL)
+            {
+              forw=temp->next;  
+                if(forw->next==NULL)
+                {
+                    break;
+                }
+                temp=temp->next;
+            }
+            temp->next=NULL;
+         }
+        else
+        {
+            for(int i=1;i<c-n+1;i++)
+            {
+                prev=temp;
+                temp=temp->next;
+                forw=temp->next;
+                
+            }
+            prev->next=forw;
+            temp=forw;
+            
+        }
+          temp=head;
+        return temp;
+    }
+};
+ 
