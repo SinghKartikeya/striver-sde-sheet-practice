@@ -1,0 +1,51 @@
+# striver-sde-sheet-practice
+2. Add Two Numbers
+c++
+
+******************************
+
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        string a,b;
+        ListNode *l3=new ListNode(0);
+        ListNode *curr=l3;
+        while(l1!=NULL)
+        {
+          int p=l1->val;
+          string s1=to_string(p);
+            a=s1+a;
+            l1=l1->next;
+        }
+        while(l2!=NULL)
+        {
+          int q=l2->val;
+          string s2=to_string(q);
+            b=s2+b;
+            l2=l2->next;
+        }
+        int m=stoi(a);
+        int n=stoi(b);
+        int z=m+n;
+        int k=z;
+        while(z!=0)
+        {      
+            int d=z%10;
+            curr->next=new ListNode(d);
+            z=z/10;
+            curr=curr->next;   
+        }
+        // if(z>0)
+        // {
+        //     curr->next=new ListNode(z);
+        // }
+        if(k==0)
+        {
+          l3->val=0;
+            return l3;
+        }
+           
+        else
+        return l3->next;
+    }
+};
