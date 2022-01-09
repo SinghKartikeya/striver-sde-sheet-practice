@@ -1,0 +1,39 @@
+# striver-sde-sheet-practice
+check if circular list is present .. right code but TLE comming
+c++
+
+************************
+
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        ListNode *curr,*temp;
+        curr=temp=head;
+        int flag=0;
+        if(curr==NULL)
+           return false;
+            else
+           {
+        while(temp->next!=NULL)
+        {
+            curr=temp->next;
+            while(flag!=1)
+            {
+                if(temp->next==curr->next)
+                {
+                    flag=1;
+                    break;
+                }
+                curr=curr->next;
+            }
+            if (flag==1)
+              break;
+            temp=temp->next;
+        }
+            }
+        if(flag==0 || temp->next==NULL)
+            return false;
+        else
+            return true;
+    }
+};
