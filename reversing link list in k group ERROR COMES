@@ -1,0 +1,52 @@
+# striver-sde-sheet-practice
+reversing link list in k group ERROR COMES
+**************************
+
+class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        ListNode *l1=new ListNode(0);
+        ListNode *dummy=head;
+        int c=0;
+        while(dummy!=NULL)
+        {
+            c++;
+            dummy=dummy->next;
+        }
+        ListNode *reverse(ListNode *rev)
+        {
+            ListNode *prev,*tem,*cur;
+            while(cur!=0)
+            {
+                next=cur->next;
+                cur->next=prev;
+                prev=cur;
+                cur=next;
+                head=prev;
+            }
+            return head;
+        }
+        int p=c/k;
+        dummy=head;
+        for(int i=1;i<=p;i++)
+        {
+            int a=1;
+            ListNode *rev=new ListNode(0);
+            while(a<=k)
+            {
+                rev=dummy;
+                rev=rev->next;
+                dummy=dummy->next;
+                a++;
+            }
+            l1=reverse(rev);
+            l1=l1->next;
+        }
+        while(dummy!=NULL)
+        {
+            l1->next=dummy;
+            dummy=dummy->next;
+        }
+        return l1;
+    }
+};
