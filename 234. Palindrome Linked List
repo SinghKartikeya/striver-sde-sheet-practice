@@ -1,0 +1,30 @@
+# striver-sde-sheet-practice
+234. Palindrome Linked List
+c++
+
+*****************************
+
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+       ListNode *curr;
+        vector<int> p;
+        vector<int> q;
+        curr=head;
+        while(curr!=NULL)
+        {
+            p.push_back(curr->val);
+            q.push_back(curr->val);
+            curr=curr->next;
+        }
+        reverse(p.begin(),p.end());
+        int k=p.size();
+        for(int i=0;i<k;i++)
+        {
+            if(p[i]!=q[i])
+            return false;
+        }
+        return true;
+        
+    }
+};
