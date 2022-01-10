@@ -1,0 +1,27 @@
+# striver-sde-sheet-practice
+Link list palindrome check for small input
+c++
+
+*********************************
+
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+       ListNode *curr;
+        curr=head;
+        
+        string p,s;
+       while(curr!=NULL)
+       {
+           int a=curr->val;
+           string str=to_string(a);
+           p=p+str;
+           s=str+s;
+           curr=curr->next;
+       }
+        if(p==s)
+            return true;
+        else
+            return false;
+    }
+};
