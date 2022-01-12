@@ -1,0 +1,54 @@
+# striver-sde-sheet-practice
+stack using array
+c++
+
+*****************************
+
+#include<iostream>
+using namespace std;
+class stack
+{
+    int *arr;
+    int top;
+    
+    public:
+    stack()
+    {
+        arr=new int[5];
+        top=-1;
+    }
+
+void push(int x)
+{
+    if(top==(5-1))
+    {
+        cout<<"stack is full"<<endl;
+    }
+    top++;
+    arr[top]=x;
+}
+void pop()
+{
+    if(top==-1)
+    {
+        cout<<"stack is empty";
+    }
+    top--;
+}
+void display()
+{
+    for(int i=0;i<=top;i++)
+    {
+        cout<<arr[i]<<endl;
+    }
+}
+};
+int main()
+{
+    stack st;
+    st.push(1);
+    st.push(2);
+    st.display();
+    st.pop();
+    st.display();
+}
