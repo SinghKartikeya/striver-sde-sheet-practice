@@ -1,0 +1,66 @@
+# striver-sde-sheet-practice
+queue using array
+c++
+
+****************************
+
+#include<iostream>
+using namespace std;
+class queue
+{
+    int front,rear,n;
+    int *arr=new int[n];
+    public:
+    queue()
+    {
+        front=rear=-1;
+        cout<<"enter length"<<endl;
+        cin>>n;
+    };
+    void enqueue(int x)
+    {
+        if(rear==n-1)
+        cout<<"end of queue"<<endl;
+        else if(front==-1 && rear==-1)
+        {
+            front =0;
+            rear++;
+            arr[rear]=x;
+            cout<<arr[rear]<<endl;
+        }
+        else
+        {
+            rear++;
+            arr[rear]=x;
+        }
+    }
+        void first()
+        {
+            cout<<arr[front]<<endl;
+        }
+        
+    
+    void dequeue()
+        {
+            if(front==-1 && rear==-1)
+            cout<<"already empty";
+            else if(front==rear)
+            {
+                front=rear=-1;
+            }
+            else 
+            {
+                front++;
+            }
+        }
+};
+int main()
+{
+    queue st;
+    st.enqueue(1);
+    st.enqueue(2);
+    st.enqueue(3);
+    st.dequeue();
+    st.dequeue();
+    st.first();
+}
