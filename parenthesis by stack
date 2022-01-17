@@ -1,0 +1,82 @@
+# striver-sde-sheet-practice
+parenthesis by stack
+c++
+
+***************************
+
+#include <iostream>
+#include<vector>
+using namespace std;
+class stack
+{
+    char *arr;
+    int top;
+    public:
+    stack()
+    {
+        arr=new char[10];
+        top=-1;
+    }
+    void push(char a)
+    {
+        top++;
+        arr[top]=a;
+       
+    }
+    void pop()
+    {
+        top--;
+    }
+    int check(int x,char t)
+    {
+        if(x==0)
+        {
+            return 0;
+        }
+        else if(arr[top]=='(' && t==')')
+        {
+            pop();
+        }
+        else if(arr[top]=='{' && t=='}')
+        {
+            pop();
+        }
+        else if(arr[top]=='[' && t==']')
+        {
+            pop();
+        }
+        else
+        {
+            return 0;
+        }
+        return 1;
+    }
+};
+int main()
+{
+    stack st;
+    string p;
+    int m;
+    cout<<"enter parenthesis as string"<<endl;
+    cin>>p;
+    for(int i=0;i<p.length();i++)
+    {
+        
+        if(p[i]=='{' || p[i]=='(' || p[i]=='[')
+        {
+            st.push(p[i]);
+        }
+        else
+        {
+             m=st.check(i,p[i]);
+            if(m==0)
+            {
+                cout<<"false";
+                break;
+            }
+        }
+        
+    }
+    if(m==1)
+    cout<<"true";
+}
