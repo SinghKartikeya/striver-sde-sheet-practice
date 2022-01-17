@@ -1,0 +1,26 @@
+# striver-sde-sheet-practice
+palindrome number
+c++
+
+****************************
+
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        int d=x;
+       long int m=0;
+        if(x<0)
+            return false;
+        while(x>0)
+        {
+            int a=x%10;
+            m=(m*10)+a;
+            x=x/10;
+            
+        }
+        if(m==d)
+            return true;
+        else
+            return false;
+    }
+};
