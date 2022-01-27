@@ -1,0 +1,40 @@
+# striver-sde-sheet-practice
+https://leetcode.com/problems/valid-palindrome/
+c++
+
+
+class Solution {
+public:
+    bool isPalindrome(string s) {
+       s=" "+s+" ";
+     string p="",q="";
+        for(int i=0;i<s.length();i++)
+        {
+            int t;
+            char ch;
+            int a=int(s[i]);
+            if(ch=='0' || ch=='1' || ch=='2' || ch=='3' || ch=='4' || ch=='5' || ch=='6' || ch=='7' || ch=='8' || ch=='9')
+                return false;
+            if(a>=65 && a<=90)
+            {
+                t=a+32;
+                ch=char(t); 
+            }
+            else 
+            {
+              t=a;
+               ch=char(t); 
+            }
+            if((t>=97 && t<=122) || t==48)
+            {
+                p=p+ch;
+                q=ch+q;
+            }
+        }
+        if(p==q)
+            return true;
+        else
+            return false;
+        
+    }
+};
