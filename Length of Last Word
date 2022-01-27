@@ -1,0 +1,32 @@
+# striver-sde-sheet-practice
+Length of Last Word
+c++
+
+https://leetcode.com/problems/length-of-last-word/
+
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int len=0;
+        string p=" ";
+        for(int i=0;i<s.length();i++)
+        {
+              p=s[i]+p;
+            
+        }
+        for(int i=0;i<p.length();i++)
+        {
+            
+             if(p[i]==' ' && len!=0)
+                 break;
+            else
+            {
+                if(p[i]!=' ')
+                    len++;
+            }
+                
+        }
+        return len;
+        
+    }
+};
