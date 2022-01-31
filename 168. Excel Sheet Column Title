@@ -1,0 +1,57 @@
+# striver-sde-sheet-practice
+https://leetcode.com/problems/excel-sheet-column-title/submissions/
+c++
+168. Excel Sheet Column Title
+
+class Solution {
+public:
+    string convertToTitle(int columnNumber) {
+      string res;
+        
+        if(columnNumber<=26)
+           {
+               char c=(char)(columnNumber+64);
+                res=res+c;
+           }
+        else
+        {
+            int x=columnNumber;
+            int count=0;
+            while(x>26)
+            {
+                int d=x/26;
+                int e=x%26;
+                if(e==0)
+                {
+                     res="Z"+res;
+                    int t=x/26;
+                    count++;
+                    if(t<=27)
+                    {
+                        res=(char)(64+t-1)+res;
+                        x=(x/26)-count;
+                    }
+                    
+                    else
+                    {
+                        x=(x/26)-count;
+                         continue;
+                    }
+                       
+                }
+                else
+                {
+                    
+                    res=char(64+e)+res;
+                    if(d<=26)
+                    res=char(64+d)+res;
+                    x=x/26;
+                }
+                
+            }
+        }
+        return res;
+           
+    }
+  
+};
