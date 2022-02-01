@@ -1,0 +1,31 @@
+# striver-sde-sheet-practice
+https://leetcode.com/problems/excel-sheet-column-number/submissions/
+c++
+
+171. Excel Sheet Column Number
+
+#include<math.h>
+class Solution {
+public:
+    int titleToNumber(string columnTitle) {
+        int sum=0;
+        if(columnTitle.length()==1)
+        {
+        int x=(int)(columnTitle[0]);
+            sum=x-64;
+        }
+        else
+        {
+            int k=0;
+            for(int i=columnTitle.length()-1;i>=0;i--)
+            {
+                int a=(int)(columnTitle[i]);
+                int l=a-64;
+                int m=(pow(26,k))*l;
+                k++;
+                sum=sum+m;
+            }
+        }
+        return sum;
+    }
+};
