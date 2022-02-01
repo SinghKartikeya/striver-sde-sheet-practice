@@ -1,0 +1,26 @@
+# striver-sde-sheet-practice
+268. Missing Number
+
+c++
+
+https://leetcode.com/problems/missing-number/
+
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int i,fin=0;
+        int k=nums.size();
+        int x=nums[k-1];
+  
+    for(i=0;i<k;i++)
+    {
+        if(nums[i]==i )
+        { 
+            fin++;
+        }
+    }
+    return fin;
+        
+    }
+};
