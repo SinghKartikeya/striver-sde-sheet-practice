@@ -1,0 +1,39 @@
+# striver-sde-sheet-practice
+
+https://leetcode.com/problems/check-if-every-row-and-column-contains-all-numbers/
+
+2133. Check if Every Row and Column Contains All Numbers
+c++
+
+
+class Solution {
+public:
+    bool checkValid(vector<vector<int>>& matrix) {
+       
+        for(int i=0;i<matrix.size();i++)
+        {
+            vector<int> check1;
+            vector<int> check2;
+            int p=0;
+            for(int j=0;j<matrix[0].size();j++)
+            {
+                check1.push_back(matrix[i][j]);
+                check2.push_back(matrix[j][i]);
+            }
+            sort(check1.begin(),check1.end());
+            sort(check2.begin(),check2.end());
+            for(int k=1;k<=matrix.size();k++)
+            {
+                if(check1[p]==k && check2[p]==k)
+                {
+                    p++;
+                    continue;
+                }
+                    
+                else
+                    return false;
+            }
+        }
+         return true;
+    }
+};
