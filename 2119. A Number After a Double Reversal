@@ -1,0 +1,34 @@
+# striver-sde-sheet-practice
+
+https://leetcode.com/problems/a-number-after-a-double-reversal/
+
+2119. A Number After a Double Reversal
+c++
+
+
+
+
+class Solution {
+public:
+    bool isSameAfterReversals(int num) {
+        int x=num;
+        int fin=0,fin1=0;
+            while(x>0)
+            {
+                int d=x%10;
+                fin=fin*10+d;
+                x=x/10;
+            }
+            while(fin>0)
+            {
+                int d=fin%10;
+                fin1=fin1*10+d;
+                fin=fin/10;
+            }
+        if(num==fin1)
+          return true;
+        else
+            return false;
+        
+    }
+};
