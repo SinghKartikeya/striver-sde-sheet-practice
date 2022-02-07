@@ -1,0 +1,33 @@
+# striver-sde-sheet-practice
+https://leetcode.com/problems/single-number/submissions/
+
+
+136. Single Number
+
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int num=0;
+        for(int i=0;i<nums.size();i=i+2)
+        {
+            
+        
+            if(i+1==nums.size())
+            {
+                num=nums[i];
+                break;
+            }
+            else
+            {
+                if(nums[i]==nums[i+1])
+                    continue;
+                else
+                {
+                   num=nums[i];
+                    break;
+                }
+                    
+            }
+        }
+        return num;
